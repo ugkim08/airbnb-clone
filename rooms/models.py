@@ -19,6 +19,24 @@ class RoomType(AbstractItem):
 
     pass
 
+class Amenity(AbstractItem):
+
+    """Amenity RoomType Model Definition"""
+
+    pass
+
+class Facility(AbstractItem):
+
+    """Facility Model Definition"""
+
+    pass
+
+class HouseRule (AbstractItem):
+
+    """House Rule Definition"""
+
+    pass
+
 class Room(core_models.TimeStampedModel):
 
     """ Room Model Definition """
@@ -36,8 +54,11 @@ class Room(core_models.TimeStampedModel):
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
-    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
-    room_type = models.ManyToManyField(RoomType, blank=True)
+    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE) # on delete : forignkey로 연결된 User를 삭제할 경우 해당 User와 연결된 Room도 함께 삭제된다는 의미이다. CASCADE = 폭포수 효과.
+    room_type = models.ForeignKey(RoomType, on_delete=models.SET_NULL, null=True)
+    amenites = models.ManyToManyField(Amenity)
+    facilites = models.ManyToManyField(Facility)
+    house_rule = models.ManyToManyField(HouseRule)
 
     def __str__(self):
         return self.name
