@@ -1,2 +1,6 @@
 {
+  "python.pythonPath": "C:\\Users\\UGkim\\.virtualenvs\\airbnb-clone-wvbDVwy6\\Scripts\\python.exe",
+  "python.linting.pylintPath": "/c/Users/UGkim/.virtualenvs/airbnb-clone-wvbDVwy6/Scripts/pylint",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }
