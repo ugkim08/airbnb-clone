@@ -27,6 +27,3 @@ room = models.ForeignKey("rooms.Room", on_delete=models.CASCADE)
 
 def __str__(self):
     return f"{self.room} - {self.check_in}"
-
-
-room = models.ch
