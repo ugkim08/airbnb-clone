@@ -68,7 +68,7 @@ class Room(core_models.TimeStampedModel):
     country = CountryField()
     city = models.CharField(max_length=80)
     price = models.IntegerField()
-    adress = models.CharField(max_length=140)
+    address = models.CharField(max_length=140)
     guests = models.IntegerField()
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
@@ -80,8 +80,8 @@ class Room(core_models.TimeStampedModel):
     host = models.ForeignKey("users.User", on_delete=models.CASCADE)
     room_type = models.ForeignKey(
         "RoomType", on_delete=models.SET_NULL, null=True)
-    amenites = models.ManyToManyField("Amenity", blank=True)
-    facilites = models.ManyToManyField("Facility", blank=True)
+    amenities = models.ManyToManyField("Amenity", blank=True)
+    facilities = models.ManyToManyField("Facility", blank=True)
     house_rule = models.ManyToManyField("HouseRule", blank=True)
 
     def __str__(self):
